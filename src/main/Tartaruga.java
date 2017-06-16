@@ -3,30 +3,30 @@ package main;
 import jplay.Sprite;
 import jplay.URL;
 
-public class Automovel extends Sprite{
+public class Tartaruga extends Sprite{
 
+	private double velocity;
 	
-	private double velocidade;
-	
-	public Automovel(int x, int y, String image) {
-		super(URL.sprite(image+".png"), 1);
+	public Tartaruga(int x, int y) {
+		super(URL.sprite("tartaruga.png"), 1);
 		
 		this.x = x;
 		this.y = y;
 		
-		this.velocidade = 1;
+		this.velocity = 1;
+		
+		// TODO Auto-generated constructor stub
 	}
 
-	
 	public void mover(){
 		
-		this.x+=this.velocidade;
-		
+		this.x+=this.velocity;
 	}
 	
-	public double getVelocity(){
+	
+  public double getVelocity(){
 		
-		return this.velocidade;
+		return this.velocity;
 	}
 	
 	public void resetPosition(){
@@ -46,5 +46,7 @@ public class Automovel extends Sprite{
 	}
 	
 	
+	
+	
+	
 }
-

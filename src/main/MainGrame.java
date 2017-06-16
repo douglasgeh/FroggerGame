@@ -5,6 +5,8 @@ import jplay.Keyboard;
 import jplay.URL;
 import jplay.Window;
 
+
+
 public class MainGrame {
 
 	
@@ -24,7 +26,7 @@ public class MainGrame {
 			
 			if(teclado.keyDown(Keyboard.ENTER_KEY)){
 				
-				new Cenário(janela);
+				new Cenario(janela);
 			}
 			
 			

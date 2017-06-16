@@ -1,5 +1,6 @@
 package main;
 
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,7 +12,7 @@ import jplay.Sprite;
 import jplay.URL;
 import jplay.Window;
 
-public class Cenário {
+public class Cenario {
 
 	private Window janela;
 	private Scene cena;
@@ -22,12 +23,13 @@ public class Cenário {
 	private TroncosModule troncosModule;
 	private CheckPointsModule checkPointsModule;
 	private AutomovelModule automovelModule;
+	private TartarugaModule tartarugaModule;
 
 	private GameState gameState;
 	
 	final private int invalid = -1;
 	
-	public Cenário(Window janela){
+	public Cenario(Window janela){
 		
 		this.janela = janela;
 		cena = new Scene();
@@ -38,6 +40,7 @@ public class Cenário {
 		this.checkPointsModule = new CheckPointsModule();
 		this.troncosModule = new TroncosModule();
 		this.automovelModule = new AutomovelModule();
+		this.tartarugaModule = new TartarugaModule();
 		
 		this.agua = new GameObject();
 		this.agua.x = 0;
@@ -91,6 +94,8 @@ public class Cenário {
 		
 		this.automovelModule.moveAndDrawMobileElements(this.janela);
 		
+		this.tartarugaModule.moveAndDrawMobileElements(this.janela);
+		
 		this.player.draw();
 		this.player.moveAccordingToKeyboard(this.janela);
 		
@@ -112,6 +117,22 @@ public class Cenário {
 			this.player.setDepending(true);
 			
 			fatalColision = false;
+		}
+		else{
+			
+			this.player.setDepending(false);
+		}
+		
+		colisionElementIndex = this.tartarugaModule.checkColisionWithMobileCenarioElement(this.player);
+		
+		if(colisionElementIndex!=invalid){
+			
+			player.moveAccordingToCenarioElement(this.tartarugaModule.getTartarugas().get(colisionElementIndex).getVelocity());
+			
+			this.player.setDepending(true);
+			
+			fatalColision = false;
+			
 		}else{
 			
 			this.player.setDepending(false);
@@ -192,7 +213,7 @@ public class Cenário {
 			// check for lifes and set game over case necessary
 		}
 		
-		/** Checando colisão com checkpoints **/
+		/** Checando colisï¿½o com checkpoints **/
 		
 		if(this.checkPointsModule.checkColisionWithStaticCenarioElement(player)){
 			
@@ -206,3 +227,4 @@ public class Cenário {
 	
 	
 }
+
