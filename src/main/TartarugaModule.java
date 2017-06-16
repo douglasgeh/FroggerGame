@@ -57,9 +57,9 @@ public class TartarugaModule extends MobileElement{
 		this.tartarugas = new ArrayList();
 		
 		
-		this.tartarugas.add(new Tartaruga(1, 40));
-		this.tartarugas.add(new Tartaruga(50, 40));
-		this.tartarugas.add(new Tartaruga(70, 60));
+		//this.tartarugas.add(new Tartaruga(1, 40));
+		//this.tartarugas.add(new Tartaruga(50, 40));
+		//this.tartarugas.add(new Tartaruga(70, 60));
 		
 		// TODO Auto-generated method stub
 		

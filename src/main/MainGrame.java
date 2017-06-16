@@ -13,7 +13,7 @@ public class MainGrame {
 	public static void main(String [] args){
 		
 		Window janela = new Window(640,800);
-		GameImage plano = new GameImage(URL.sprite("teste.png"));
+		GameImage plano = new GameImage(URL.sprite("menuImg.png"));
 		
 		Keyboard teclado = janela.getKeyboard();
 		

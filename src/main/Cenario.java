@@ -6,7 +6,9 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
+import jplay.GameImage;
 import jplay.GameObject;
+import jplay.Keyboard;
 import jplay.Scene;
 import jplay.Sprite;
 import jplay.URL;
@@ -74,7 +76,18 @@ public class Cenario {
 			
 			if(this.gameState == GameState.GAME_OVER){
 				
+				//System.out.println("gameOver");
 				
+				GameImage gameOverImage = new GameImage(URL.sprite("gameOverImg.png"));
+				
+				gameOverImage.draw();
+				janela.update();
+				
+				if(this.janela.getKeyboard().keyDown(Keyboard.ENTER_KEY)){
+					
+					this.gameState = GameState.EXIT;
+					
+				}
 			}
 			
 			
