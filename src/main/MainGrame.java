@@ -13,14 +13,17 @@ public class MainGrame {
 	public static void main(String [] args){
 		
 		Window janela = new Window(640,800);
-		GameImage plano = new GameImage(URL.sprite("menuImg.png"));
+		//GameImage plano = new GameImage(URL.sprite("menuImg.png"));
 		
+		MenuManager menu = new MenuManager(60,315,janela.getKeyboard());
 		Keyboard teclado = janela.getKeyboard();
 		
 		
 		while(true){
 			
-			plano.draw();
+			menu.drawMenuAndArrow();
+			
+			menu.setLocationForMenuArrowAccordingToKeyboard();
 			
 			janela.update();
 			
