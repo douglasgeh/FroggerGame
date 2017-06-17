@@ -13,7 +13,7 @@ public class Tartaruga extends Sprite{
 		this.x = x;
 		this.y = y;
 		
-		this.velocity = 1;
+		this.velocity = 0.3;
 		
 		// TODO Auto-generated constructor stub
 	}

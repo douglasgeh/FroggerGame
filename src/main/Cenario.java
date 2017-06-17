@@ -216,7 +216,7 @@ public class Cenario {
 		
 		
 		
-		if(this.checkCenarioMobileElementsColision() || this.checkWaterColision()){
+		if(this.checkCenarioMobileElementsColision() ){
 			
 			if(!checkForLifes()){
 				

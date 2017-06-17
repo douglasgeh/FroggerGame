@@ -14,7 +14,7 @@ public class Automovel extends Sprite{
 		this.x = x;
 		this.y = y;
 		
-		this.velocidade = 1;
+		this.velocidade = 0.3;
 	}
 
 	
