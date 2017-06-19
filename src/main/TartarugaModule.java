@@ -56,16 +56,41 @@ public class TartarugaModule extends MobileElement{
 		
 		this.tartarugas = new ArrayList();
 		
+		// Sabemos que a largura de cada tartaruga é 73 pontos logo
+		
+		int larguraTartaruga = 73;
 		
 		
 		this.tartarugas.add(new Tartaruga(1, 83));
-		this.tartarugas.add(new Tartaruga(73, 83));
-		this.tartarugas.add(new Tartaruga(145, 83));
+		this.tartarugas.add(new Tartaruga(larguraTartaruga, 83));
+		this.tartarugas.add(new Tartaruga((larguraTartaruga*2), 83));
 		
-		this.tartarugas.add(new Tartaruga(289, 83));
-		this.tartarugas.add(new Tartaruga(361, 83));
+		this.tartarugas.add(new Tartaruga((larguraTartaruga*4), 83));
+		this.tartarugas.add(new Tartaruga((larguraTartaruga*5), 83));
+		
+		this.tartarugas.add(new Tartaruga((larguraTartaruga*7), 83));
+		this.tartarugas.add(new Tartaruga((larguraTartaruga*8), 83));
+		
+		this.tartarugas.add(new Tartaruga(1, 249));
+		this.tartarugas.add(new Tartaruga(larguraTartaruga, 249));
+		this.tartarugas.add(new Tartaruga((larguraTartaruga*2), 249));
+		
+		this.tartarugas.add(new Tartaruga((larguraTartaruga*4), 249));
+		this.tartarugas.add(new Tartaruga((larguraTartaruga*5), 249));
+		
+		this.tartarugas.add(new Tartaruga((larguraTartaruga*7), 249));
+		this.tartarugas.add(new Tartaruga((larguraTartaruga*8), 249));
+		
+		
+		
+		
+		//this.tartarugas.add(new Tartaruga(289, 83));
+		//this.tartarugas.add(new Tartaruga(361, 83));
 		
 		// TODO Auto-generated method stub
+		
+		
+		System.out.println(this.tartarugas.get(0).width);
 		
 	}
 	

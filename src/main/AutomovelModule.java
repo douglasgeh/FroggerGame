@@ -56,10 +56,10 @@ public class AutomovelModule extends MobileElement{
 		this.automoveis = new ArrayList();
 		
 		
-		this.automoveis.add(new Automovel(1,450,"caminhao"));
-		this.automoveis.add(new Automovel(50, 510, "carroAzul"));
-		this.automoveis.add(new Automovel(100, 620, "carroAmarelo"));
-		
+		this.automoveis.add(new Automovel(1,405,"caminhao", 1));
+		this.automoveis.add(new Automovel(1, 485, "carroAzul", -1));
+		this.automoveis.add(new Automovel(1, 565, "carroAmarelo", 1));
+		this.automoveis.add(new Automovel(1, 645, "caminhaoGrande", -1));
 		
 	}
 

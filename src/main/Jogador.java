@@ -16,7 +16,7 @@ public class Jogador extends Sprite{
 	
 	public Jogador(int x, int y) {
 		
-		super(URL.sprite("frogCorrected.png"), 7);
+		super(URL.sprite("singleFrog.png"), 1);
 		
 		this.x = x;
 		this.y = y;

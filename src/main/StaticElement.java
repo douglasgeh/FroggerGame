@@ -2,6 +2,7 @@ package main;
 
 import jplay.GameObject;
 
+
 public abstract class StaticElement {
 
 	

@@ -19,7 +19,7 @@ public class Tronco extends Sprite{
 		this.x = x;
 		this.y = y;
 		
-		this.velocidade =0.1;
+		this.velocidade =-0.1;
 		
 		// TODO Auto-generated constructor stub
 	}
@@ -62,12 +62,12 @@ public class Tronco extends Sprite{
 	
 	public void resetPosition(){
 		
-		this.x = -185;
+		this.x = 640;
 	}
 	
 	public boolean checkEndOfMap(int mapFinalPositionX){
 		
-		if(this.x >= mapFinalPositionX){
+		if(this.x <= -154){
 			
 			return true;
 		}else{

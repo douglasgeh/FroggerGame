@@ -7,14 +7,16 @@ public class Automovel extends Sprite{
 
 	
 	private double velocidade;
+	private int direcao;
 	
-	public Automovel(int x, int y, String image) {
+	public Automovel(int x, int y, String image, int direcao) {
 		super(URL.sprite(image+".png"), 1);
 		
 		this.x = x;
 		this.y = y;
 		
-		this.velocidade = 0.3;
+		this.velocidade = 0.1*direcao;
+		this.direcao = direcao;
 	}
 
 	
@@ -31,19 +33,26 @@ public class Automovel extends Sprite{
 	
 	public void resetPosition(){
 		
-		this.x = -185;
+		if(this.direcao == 1)this.x = -185;
+		else this.x = 640;
+		
 	}
 	
 	public boolean checkEndOfMap(int mapFinalPositionX){
 		
-		if(this.x >= mapFinalPositionX){
+		if(this.x >= mapFinalPositionX && direcao == 1){
 			
 			return true;
-		}else{
+		}else if(this.x+this.width <= 0 && direcao == -1){
+			
+			return true;
+		}
+		else{
 			
 			return false;
 		}
-	}
+	}	
+	
 	
 	
 }
