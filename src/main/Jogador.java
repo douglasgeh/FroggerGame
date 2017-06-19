@@ -7,7 +7,7 @@ import jplay.Window;
 
 public class Jogador extends Sprite{
 
-	private double velocidade = 0.3;
+	private double velocidade = 0.2;
 	private double direcao = 3;
 	private Keyboard teclado;
 	private boolean movendo = false;
@@ -16,7 +16,7 @@ public class Jogador extends Sprite{
 	
 	public Jogador(int x, int y) {
 		
-		super(URL.sprite("singleFrog.png"), 1);
+		super(URL.sprite("frogCorrected.png"), 7);
 		
 		this.x = x;
 		this.y = y;

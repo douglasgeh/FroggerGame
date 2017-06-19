@@ -19,7 +19,7 @@ public class Tronco extends Sprite{
 		this.x = x;
 		this.y = y;
 		
-		this.velocidade =0.3;
+		this.velocidade =0.1;
 		
 		// TODO Auto-generated constructor stub
 	}

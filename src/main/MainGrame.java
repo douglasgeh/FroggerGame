@@ -15,18 +15,18 @@ public class MainGrame {
 	final static int NovoJogo = 0;
 	final static int Ranking = 1;
 	final static int Sair = 2;
+	final static int WindowHeight = 800;
+	final static int WindowWidth = 640;
 	
 	public static void main(String [] args) throws InterruptedException{
 		
-		Window janela = new Window(640,800);
-		//GameImage plano = new GameImage(URL.sprite("menuImg.png"));
-		
+		Window janela = new Window(WindowWidth,WindowHeight);
 		MenuManager menu = new MenuManager(janela.getKeyboard());
 		Keyboard teclado = janela.getKeyboard();
 		
 		GameState gameMenuState = GameState.RUNING;
 		
-		int selectedOption = menu.NovoJogo;
+		int selectedOption = NovoJogo;
 		
 		while(gameMenuState == GameState.RUNING){
 			

@@ -27,9 +27,9 @@ public class TroncosModule extends MobileElement{
 		 * em consideração sua altura e largura.
 		 */
 		
-		this.troncos.add(new Tronco(1,81, 1));
-		this.troncos.add(new Tronco(10,200, 1));
-		this.troncos.add(new Tronco(15,255, 1));
+		//this.troncos.add(new Tronco(1,81, 1));
+		//this.troncos.add(new Tronco(10,200, 1));
+		//this.troncos.add(new Tronco(15,255, 1));
 		
 		
 	}
