@@ -26,7 +26,11 @@ public class CheckPointsModule extends StaticElement{
 		
 		for(int i=0;i<this.checkPoints.size();i++){
 			
-			if(this.checkPoints.get(i).collided(player)){
+			if(this.checkPoints.get(i).checkIfTheFrogIsInsideTheCheckPoint(player) && !this.checkPoints.get(i).isChecked()){
+				
+				this.checkPoints.get(i).drawCheckedPointFrog();
+				
+				this.checkPoints.get(i).setChecked(true);
 				
 				return true;
 			}
@@ -50,13 +54,25 @@ public class CheckPointsModule extends StaticElement{
 		
 		this.checkPoints = new ArrayList();
 		
-		this.checkPoints.add(new CheckPoint(80, 0));
-		this.checkPoints.add(new CheckPoint(240, 0));
-		this.checkPoints.add(new CheckPoint(400, 0));
-		this.checkPoints.add(new CheckPoint(560, 0));
+		this.checkPoints.add(new CheckPoint(80+13, 21));
+		this.checkPoints.add(new CheckPoint(240+13, 21));
+		this.checkPoints.add(new CheckPoint(400+13, 21));
+		this.checkPoints.add(new CheckPoint(560+13, 21));
 		
 		
 	}
 	
+	
+	public void drawCheckedFroggsIfExists(){
+		
+		for(int i = 0;i<this.checkPoints.size();i++){
+			if(this.checkPoints.get(i).isChecked()){
+				
+				this.checkPoints.get(i).drawCheckedPointFrog();
+			}
+			
+		}
+		
+	}
 	
 }

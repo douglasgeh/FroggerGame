@@ -62,6 +62,8 @@ public class Cenario {
 		
 		while(this.gameState != GameState.EXIT){
 
+			this.cena.draw();
+			
 			while(this.gameState == GameState.RUNING){
 				
 				
@@ -108,6 +110,10 @@ public class Cenario {
 		this.automovelModule.moveAndDrawMobileElements(this.janela);
 		
 		this.tartarugaModule.moveAndDrawMobileElements(this.janela);
+		
+		this.checkPointsModule.drawCheckedFroggsIfExists();
+		
+		
 		
 		this.player.draw();
 		this.player.moveAccordingToKeyboard(this.janela);
@@ -197,10 +203,6 @@ public class Cenario {
 		if(this.player.getLifes()>0){
 			
 			this.player.decreaseLife();
-			//JOptionPane.showMessageDialog(null, "Perdeu uma vida, voltando ao inicio..");
-			
-			//this.gameState = GameState.COLIDADE;
-			// UPDATE NUMERO DE VIDAS NA TELA
 			
 			this.resetGameStateToBeginning();
 			
@@ -222,13 +224,15 @@ public class Cenario {
 				
 				this.gameState = GameState.GAME_OVER;
 			}
-			
-			// check for lifes and set game over case necessary
+
+
 		}
 		
 		/** Checando colis�o com checkpoints **/
 		
 		if(this.checkPointsModule.checkColisionWithStaticCenarioElement(player)){
+			
+			this.player.resetPosition();
 			
 			System.out.println("Colidiu com checkpoint");
 		}

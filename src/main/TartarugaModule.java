@@ -22,7 +22,7 @@ public class TartarugaModule extends MobileElement{
 		// TODO Auto-generated method stub
 		for(int i=0;i<this.tartarugas.size();i++){
 			
-			if(this.tartarugas.get(i).collided(player)){
+			if(this.tartarugas.get(i).isContainedFor(player)){
 				
 				return i;
 			}

@@ -1,5 +1,6 @@
 package main;
 
+import jplay.GameObject;
 import jplay.Sprite;
 import jplay.URL;
 
@@ -74,6 +75,23 @@ public class Tronco extends Sprite{
 			
 			return false;
 		}
+	}
+	
+	public boolean isContainedFor(GameObject player){
+		
+		
+		if(player.x > this.x && player.x+player.width < this.x+this.width){
+			
+			if(player.y+player.height <= this.y+this.height){
+				
+				return true;
+			}
+			
+			
+		}
+		
+		
+		return false;
 	}
 	
 }

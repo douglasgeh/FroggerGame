@@ -121,4 +121,6 @@ public class Jogador extends Sprite{
 		this.x = 350;
 		this.y = 750;
 	}
+	
+	
 }
