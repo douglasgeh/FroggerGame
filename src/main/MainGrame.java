@@ -23,7 +23,6 @@ public class MainGrame {
 		Window janela = new Window(WindowWidth,WindowHeight);
 		MenuManager menu = new MenuManager(janela.getKeyboard());
 		Keyboard teclado = janela.getKeyboard();
-		
 		GameState gameMenuState = GameState.RUNING;
 		
 		int selectedOption = NovoJogo;
@@ -50,6 +49,8 @@ public class MainGrame {
 		switch(selectedOption){
 			
 		case NovoJogo: new Cenario(janela);
+		
+						
 			break;
 			
 		case Sair: System.exit(0);

@@ -4,6 +4,7 @@ import jplay.GameObject;
 import jplay.Sprite;
 import jplay.URL;
 
+
 public class CheckPoint extends Sprite{
 
 	private boolean checked;
@@ -30,9 +31,9 @@ public class CheckPoint extends Sprite{
 	public boolean checkIfTheFrogIsInsideTheCheckPoint(GameObject player){
 		
 		
-		if(player.x > (this.x-13) && player.x+player.width < (this.x + this.width + 13)){
+		if(player.x > (this.x-17) && player.x+player.width < (this.x + this.width + 17)){
 			
-			if(player.y >= 0 && player.y <= (this.y + this.height + 21)){
+			if(player.y >= 0 && player.y+player.height-5 <= (this.y + this.height)){
 				
 				return true;
 			}

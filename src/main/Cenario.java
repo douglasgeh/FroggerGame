@@ -29,6 +29,8 @@ public class Cenario {
 
 	private GameState gameState;
 	
+	private boolean waterColision;
+	
 	final private int invalid = -1;
 	
 	public Cenario(Window janela){
@@ -50,6 +52,8 @@ public class Cenario {
 		
 		this.agua.width = this.janela.getWidth();
 		this.agua.height = 240;
+		
+		this.waterColision = false;
 		
 		this.gameState = GameState.RUNING;
 	
@@ -125,6 +129,8 @@ public class Cenario {
 		
 		boolean fatalColision = false;
 		
+		
+		
 		/** Checando colisao com carros, troncos ou tartarugas **/
 		
 		int colisionElementIndex = this.troncosModule.checkColisionWithMobileCenarioElement(this.player);
@@ -135,6 +141,8 @@ public class Cenario {
 			
 			this.player.setDepending(true);
 			
+			System.out.println("Tronco depending: "+this.player.getDepending());
+			
 			fatalColision = false;
 		}
 		else{
@@ -142,20 +150,29 @@ public class Cenario {
 			this.player.setDepending(false);
 		}
 		
-		colisionElementIndex = this.tartarugaModule.checkColisionWithMobileCenarioElement(this.player);
-		
-		if(colisionElementIndex!=invalid){
+		if(!this.player.getDepending()){
 			
-			player.moveAccordingToCenarioElement(this.tartarugaModule.getTartarugas().get(colisionElementIndex).getVelocity());
+
+			colisionElementIndex = this.tartarugaModule.checkColisionWithMobileCenarioElement(this.player);
 			
-			this.player.setDepending(true);
+			if(colisionElementIndex!=invalid){
+				
+				player.moveAccordingToCenarioElement(this.tartarugaModule.getTartarugas().get(colisionElementIndex).getVelocity());
+				
+				this.player.setDepending(true);
+				
+				System.out.println("Tartaruga depending: "+this.player.getDepending());
+				
+				fatalColision = false;
+				
+			}else{
+				
+				this.player.setDepending(false);
+			}
 			
-			fatalColision = false;
 			
-		}else{
-			
-			this.player.setDepending(false);
 		}
+		
 		
 		if(this.automovelModule.checkColisionWithMobileCenarioElement(this.player) != invalid){
 			
@@ -173,10 +190,12 @@ public class Cenario {
 			
 			return false;
 		}
-		
-		if(this.agua.collided(this.player)){
+		else if(this.agua.collided(this.player)){
 			
+			System.out.println("Colisao com agua!");
 			return true;
+			
+			
 		}
 		
 		return false;
@@ -218,7 +237,7 @@ public class Cenario {
 		
 		
 		
-		if(this.checkCenarioMobileElementsColision() ){
+		if(this.checkCenarioMobileElementsColision() || this.checkWaterColision()){
 			
 			if(!checkForLifes()){
 				

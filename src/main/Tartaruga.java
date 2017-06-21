@@ -11,7 +11,7 @@ public class Tartaruga extends Sprite{
 	private int frameMultiplierControl;
 	
 	public Tartaruga(int x, int y) {
-		super(URL.sprite("tartarugasFrames.png"), 4);
+		super(URL.sprite("tartaruga_h80_debug.png"), 4);
 		
 		this.x = x;
 		this.y = y;

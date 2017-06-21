@@ -24,10 +24,11 @@ public class Jogador extends Sprite{
 		this.depending = false;
 		
 		this.lifes = 3;
-	
 		
 		// TODO Auto-generated constructor stub
 	}
+	
+
 
 
 	
@@ -54,8 +55,7 @@ public class Jogador extends Sprite{
 			if(this.x>0){
 				
 				this.x -= this.velocidade;
-				this.setSequence(0, 0);
-				//this.movendo = true;
+				
 			}
 
 		}else if(this.teclado.keyDown(Keyboard.RIGHT_KEY)){
@@ -63,8 +63,7 @@ public class Jogador extends Sprite{
 			if(this.x < janela.getWidth()-50){
 				
 				this.x+=this.velocidade;
-				this.movendo = true;
-				//this.setSequence(0, 0);
+			
 			}
 			
 			
@@ -73,8 +72,7 @@ public class Jogador extends Sprite{
 			if(this.y<janela.getHeight()-50){
 				
 				this.y+=this.velocidade;
-				this.movendo = true;
-				//this.setSequence(0, 0);
+				
 			}
 			
 			
@@ -83,19 +81,14 @@ public class Jogador extends Sprite{
 			if(this.y > 0){
 				
 				this.y-=this.velocidade;
-				//this.setSequence(0, 2);
-				this.movendo = true;
+				
 			}
 			
 			
 		}
 		
 		
-		if(movendo){
-			
-			update();
-			this.movendo = false;
-		}
+		
 		
 		
 	}

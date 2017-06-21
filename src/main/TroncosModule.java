@@ -40,7 +40,7 @@ public class TroncosModule extends MobileElement{
 		
 		for(int i=0;i<this.troncos.size();i++){
 			
-			if(this.troncos.get(i).isContainedFor(player)){
+			if(this.troncos.get(i).collided(player)){
 				
 				return i;
 			}

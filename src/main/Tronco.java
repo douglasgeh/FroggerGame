@@ -14,7 +14,7 @@ public class Tronco extends Sprite{
 		
 		//String imagePath = this.definePathForImageSize(size);
 		
-		super(URL.sprite("troncoComBordas.png"), 1);
+		super(URL.sprite("tronco_h80_debug.png"), 1);
 		
 		
 		this.x = x;

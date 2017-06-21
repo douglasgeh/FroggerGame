@@ -22,7 +22,7 @@ public class TartarugaModule extends MobileElement{
 		// TODO Auto-generated method stub
 		for(int i=0;i<this.tartarugas.size();i++){
 			
-			if(this.tartarugas.get(i).isContainedFor(player)){
+			if(this.tartarugas.get(i).collided(player)){
 				
 				return i;
 			}
@@ -45,7 +45,7 @@ public class TartarugaModule extends MobileElement{
 				
 				this.tartarugas.get(index).resetPosition();
 			}
-		}
+		}  
 		
 		
 		
@@ -61,25 +61,25 @@ public class TartarugaModule extends MobileElement{
 		int larguraTartaruga = 73;
 		
 		
-		this.tartarugas.add(new Tartaruga(1, 83));
-		this.tartarugas.add(new Tartaruga(larguraTartaruga, 83));
-		this.tartarugas.add(new Tartaruga((larguraTartaruga*2), 83));
+		this.tartarugas.add(new Tartaruga(1, 80));
+		this.tartarugas.add(new Tartaruga(larguraTartaruga, 80));
+		this.tartarugas.add(new Tartaruga((larguraTartaruga*2), 80));
 		
-		this.tartarugas.add(new Tartaruga((larguraTartaruga*4), 83));
-		this.tartarugas.add(new Tartaruga((larguraTartaruga*5), 83));
+		this.tartarugas.add(new Tartaruga((larguraTartaruga*4), 80));
+		this.tartarugas.add(new Tartaruga((larguraTartaruga*5), 80));
 		
-		this.tartarugas.add(new Tartaruga((larguraTartaruga*7), 83));
-		this.tartarugas.add(new Tartaruga((larguraTartaruga*8), 83));
+		this.tartarugas.add(new Tartaruga((larguraTartaruga*7), 80));
+		this.tartarugas.add(new Tartaruga((larguraTartaruga*8), 80));
 		
-		this.tartarugas.add(new Tartaruga(1, 249));
-		this.tartarugas.add(new Tartaruga(larguraTartaruga, 249));
-		this.tartarugas.add(new Tartaruga((larguraTartaruga*2), 249));
+		this.tartarugas.add(new Tartaruga(1, 240));
+		this.tartarugas.add(new Tartaruga(larguraTartaruga, 240));
+		this.tartarugas.add(new Tartaruga((larguraTartaruga*2), 240));
 		
-		this.tartarugas.add(new Tartaruga((larguraTartaruga*4), 249));
-		this.tartarugas.add(new Tartaruga((larguraTartaruga*5), 249));
+		this.tartarugas.add(new Tartaruga((larguraTartaruga*4), 240));
+		this.tartarugas.add(new Tartaruga((larguraTartaruga*5), 240));
 		
-		this.tartarugas.add(new Tartaruga((larguraTartaruga*7), 249));
-		this.tartarugas.add(new Tartaruga((larguraTartaruga*8), 249));
+		this.tartarugas.add(new Tartaruga((larguraTartaruga*7), 240));
+		this.tartarugas.add(new Tartaruga((larguraTartaruga*8), 240));
 		
 		
 		
