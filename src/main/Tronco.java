@@ -14,7 +14,7 @@ public class Tronco extends Sprite{
 		
 		//String imagePath = this.definePathForImageSize(size);
 		
-		super(URL.sprite("tronco_h80_debug.png"), 1);
+		super(URL.sprite("tronco_h80.png"), 1);
 		
 		
 		this.x = x;
@@ -79,10 +79,13 @@ public class Tronco extends Sprite{
 	
 	public boolean isContainedFor(GameObject player){
 		
+		int tolerancia = 10;
 		
 		if(player.x > this.x && player.x+player.width < this.x+this.width){
 			
-			if(player.y+player.height <= this.y+this.height){
+			if(player.y-player.height <= this.y+tolerancia && player.y-player.height >= this.y-player.height){
+				
+				System.out.println("Colidiu tronco");
 				
 				return true;
 			}

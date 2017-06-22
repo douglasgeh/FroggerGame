@@ -11,7 +11,7 @@ public class Tartaruga extends Sprite{
 	private int frameMultiplierControl;
 	
 	public Tartaruga(int x, int y) {
-		super(URL.sprite("tartaruga_h80_debug.png"), 4);
+		super(URL.sprite("tartaruga_h90.png"), 4);
 		
 		this.x = x;
 		this.y = y;
@@ -82,12 +82,14 @@ public class Tartaruga extends Sprite{
     public boolean isContainedFor(GameObject player){
 		
 		
+    	int tolerancia = 10;
+		
 		if(player.x > this.x && player.x+player.width < this.x+this.width){
 			
-			if(player.y+player.height <= this.y+this.height){
+			
 				
 				return true;
-			}
+			
 			
 			
 		}
