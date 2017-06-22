@@ -59,4 +59,5 @@ public class CheckPoint extends Sprite{
 		
 	}
 	
+
 }

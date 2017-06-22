@@ -82,8 +82,6 @@ public class Cenario {
 			
 			if(this.gameState == GameState.GAME_OVER){
 				
-				//System.out.println("gameOver");
-				
 				GameImage gameOverImage = new GameImage(URL.sprite("gameOverImg.png"));
 				
 				gameOverImage.draw();
@@ -94,6 +92,21 @@ public class Cenario {
 					this.gameState = GameState.EXIT;
 					
 				}
+			}
+			else if(this.gameState == GameState.WINNER){
+				
+				GameImage youWonImg = new GameImage(URL.sprite("youWonImg.png"));
+				
+				youWonImg.draw();
+				janela.update();
+				
+				if(this.janela.getKeyboard().keyDown(Keyboard.ENTER_KEY)){
+					
+					this.gameState = GameState.EXIT;
+					
+				}
+				
+				
 			}
 			
 			
@@ -252,6 +265,11 @@ public class Cenario {
 		if(this.checkPointsModule.checkColisionWithStaticCenarioElement(player)){
 			
 			this.player.resetPosition();
+			
+			if(this.checkPointsModule.checkWin()){
+				
+				this.gameState = GameState.WINNER;
+			}
 			
 			System.out.println("Colidiu com checkpoint");
 		}

@@ -75,4 +75,26 @@ public class CheckPointsModule extends StaticElement{
 		
 	}
 	
+	public boolean checkWin(){
+		
+		int checkPointsReached = 0;
+		
+		for(int i=0;i<this.checkPoints.size();i++){
+			
+			if(this.checkPoints.get(i).isChecked()){
+				
+				checkPointsReached++;
+			}
+			
+		}
+		
+		if(this.checkPoints.size() == checkPointsReached){
+			
+			return true;
+		}else{
+			
+			return false;
+		}
+	}
+	
 }
