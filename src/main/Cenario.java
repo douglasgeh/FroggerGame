@@ -163,7 +163,11 @@ public class Cenario {
 		
 		if(this.timer.checkEndGameIfTimeWasReached()){
 			
-			this.gameState = GameState.GAME_OVER;
+			this.player.decreaseLife();
+			if(!this.checkForLifes()){
+				
+				this.gameState = GameState.GAME_OVER;
+			}
 			
 		}
 		else{

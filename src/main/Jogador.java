@@ -25,7 +25,7 @@ public class Jogador extends Sprite{
 		this.y = y;
 		this.scoreManager = new ScoreManager();
 	
-		this.delayVelocityMultiplier = 30;
+		this.delayVelocityMultiplier = 60;
 		
 		
 		this.delayToClick = 1;
