@@ -103,6 +103,8 @@ public class Cenario {
 				
 				if(this.janela.getKeyboard().keyDown(Keyboard.ENTER_KEY)){
 					
+					JOptionPane.showInputDialog("Your score was: "+this.player.getScoreManager().getCurrentScore()+"! Please type your name..");
+					
 					this.gameState = GameState.EXIT;
 					System.out.println(this.player.getScoreManager().getCurrentScore());
 					
