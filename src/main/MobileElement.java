@@ -18,6 +18,6 @@ abstract public class MobileElement {
 	
 	abstract int checkColisionWithMobileCenarioElement(GameObject player);
 	abstract void moveAndDrawMobileElements(Window janela);
-	abstract void initElements();
+	abstract void initElements(int vel);
 
 }

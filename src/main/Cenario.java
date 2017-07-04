@@ -1,6 +1,7 @@
 package main;
 
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -19,6 +20,7 @@ public class Cenario {
 	private Window janela;
 	private Scene cena;
 	private Jogador player;
+	//private ScoreManager score;
 	
 	private GameObject agua;
 	
@@ -26,6 +28,7 @@ public class Cenario {
 	private CheckPointsModule checkPointsModule;
 	private AutomovelModule automovelModule;
 	private TartarugaModule tartarugaModule;
+	private int velocityChange;
 
 	private GameState gameState;
 	
@@ -33,7 +36,7 @@ public class Cenario {
 	
 	final private int invalid = -1;
 	
-	public Cenario(Window janela){
+	public Cenario(Window janela, int velTax){
 		
 		this.janela = janela;
 		cena = new Scene();
@@ -41,10 +44,12 @@ public class Cenario {
 		
 		this.player = new Jogador(300,750);
 		
+		//this.score = new ScoreManager();
+		this.velocityChange = velTax;
 		this.checkPointsModule = new CheckPointsModule();
-		this.troncosModule = new TroncosModule();
-		this.automovelModule = new AutomovelModule();
-		this.tartarugaModule = new TartarugaModule();
+		this.troncosModule = new TroncosModule(this.velocityChange);
+		this.automovelModule = new AutomovelModule(this.velocityChange);
+		this.tartarugaModule = new TartarugaModule(this.velocityChange);
 		
 		this.agua = new GameObject();
 		this.agua.x = 0;
@@ -70,9 +75,9 @@ public class Cenario {
 			
 			while(this.gameState == GameState.RUNING){
 				
-				
 				this.checkAndSolveColisions();
 				this.drawCenarioElements();
+				//this.janela.drawText(Integer.toString(score.getCurrentScore()), 550, 750, Color.BLUE);
 				
 				
 				janela.update();
@@ -90,6 +95,7 @@ public class Cenario {
 				if(this.janela.getKeyboard().keyDown(Keyboard.ENTER_KEY)){
 					
 					this.gameState = GameState.EXIT;
+					System.out.println(this.player.getScoreManager().getCurrentScore());
 					
 				}
 			}
@@ -102,7 +108,14 @@ public class Cenario {
 				
 				if(this.janela.getKeyboard().keyDown(Keyboard.ENTER_KEY)){
 					
-					this.gameState = GameState.EXIT;
+					this.gameState = GameState.RUNING;
+					//this.player.resetLifes();
+					
+					this.player.resetSettingsToNewLevel();
+					this.checkPointsModule.resetCheckPoints();
+					this.troncosModule.IncreaseVelocity(this.velocityChange+1);
+					this.tartarugaModule.IncreaseVelocity(this.velocityChange+1);
+					this.automovelModule.IncreaseVelocity(this.velocityChange+1);
 					
 				}
 				

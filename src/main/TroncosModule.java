@@ -9,28 +9,34 @@ public class TroncosModule extends MobileElement{
 
 	private ArrayList<Tronco> troncos;
 	
-	public TroncosModule(){
+	public TroncosModule(int velTax){
 		
 		super(false);
-		this.initElements();
+		this.initElements(velTax);
 		
 	}
-	
+	void IncreaseVelocity(int vel){
+		for(Tronco tronc : troncos) {
+			tronc.increaseVelocity(vel);
+		}
+	}
 	@Override 
-	 void initElements(){
+	 void initElements(int velTax){
 		
 		this.troncos = new ArrayList();
 		
 		
-		/* É preciso cuidado na hora de iniciar os elementos para que os mesmos nao ultrapassem suas zonas,
+		/* ï¿½ preciso cuidado na hora de iniciar os elementos para que os mesmos nao ultrapassem suas zonas,
 		 * ou seja, os troncos por exemplo devem permanecer ao intervalo de y:[81 - 260] levando 
-		 * em consideração sua altura e largura.
+		 * em consideraï¿½ï¿½o sua altura e largura.
 		 */
 		
 		this.troncos.add(new Tronco(1,160, 1));
 		//this.troncos.add(new Tronco(185,160, 1));
 		this.troncos.add(new Tronco(370,160, 1));
-		
+		for(Tronco tronc : troncos) {
+			tronc.increaseVelocity(velTax);
+		}
 		
 	}
 

@@ -61,6 +61,10 @@ public class Tronco extends Sprite{
 		return this.velocidade;
 	}
 	
+	public void increaseVelocity(int tax) {
+		this.velocidade *= tax;
+	}
+	
 	public void resetPosition(){
 		
 		this.x = 640;

@@ -10,11 +10,11 @@ public class AutomovelModule extends MobileElement{
 	
 	private ArrayList<Automovel> automoveis;
 	
-	public AutomovelModule(){
+	public AutomovelModule(int value){
 		
 		super(true);
 		
-		this.initElements();
+		this.initElements(value);
 	}
 	
 	@Override
@@ -49,9 +49,13 @@ public class AutomovelModule extends MobileElement{
 		}
 		
 	}
-
+	void IncreaseVelocity(int vel){
+		for (Automovel auto:this.automoveis) {
+			auto.increaseVelocity(vel);
+		}
+	}
 	@Override
-	void initElements() {
+	void initElements(int vel) {
 		
 		this.automoveis = new ArrayList();
 		
@@ -60,6 +64,9 @@ public class AutomovelModule extends MobileElement{
 		this.automoveis.add(new Automovel(1, 485, "carroAzul", -1));
 		this.automoveis.add(new Automovel(1, 565, "carroAmarelo", 1));
 		this.automoveis.add(new Automovel(1, 645, "caminhaoGrande", -1));
+		for (Automovel auto:this.automoveis) {
+			auto.increaseVelocity(vel);
+		}
 		
 	}
 

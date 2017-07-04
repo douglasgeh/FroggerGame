@@ -17,6 +17,7 @@ public class MainGrame {
 	final static int Sair = 2;
 	final static int WindowHeight = 800;
 	final static int WindowWidth = 640;
+	final static int speedMultiplier = 1;
 	
 	public static void main(String [] args) throws InterruptedException{
 		
@@ -32,7 +33,7 @@ public class MainGrame {
 			selectedOption = menu.parseLocationForMenuArrowAccordingToKeyboard();
 			menu.drawMenuAndArrow();
 			janela.update();
-			TimeUnit.MILLISECONDS.sleep(300);
+			TimeUnit.MILLISECONDS.sleep(250);
 			
 			if(teclado.keyDown(Keyboard.ENTER_KEY)){
 				
@@ -48,7 +49,7 @@ public class MainGrame {
 		
 		switch(selectedOption){
 			
-		case NovoJogo: new Cenario(janela);
+		case NovoJogo: new Cenario(janela,speedMultiplier);
 		
 						
 			break;

@@ -9,10 +9,10 @@ public class TartarugaModule extends MobileElement{
 
 	private ArrayList<Tartaruga> tartarugas;
 	
-	public TartarugaModule(){
+	public TartarugaModule(int velTax){
 		super(false);
 		
-		this.initElements();
+		this.initElements(velTax);
 		
 		
 	}
@@ -50,13 +50,17 @@ public class TartarugaModule extends MobileElement{
 		
 		
 	}
-
+	void IncreaseVelocity(int vel){
+		for(Tartaruga tart : tartarugas) {
+			tart.increaseVelocity(vel);
+		}
+	}
 	@Override
-	void initElements() {
+	void initElements(int velTax) {
 		
 		this.tartarugas = new ArrayList();
 		
-		// Sabemos que a largura de cada tartaruga é 73 pontos logo
+		// Sabemos que a largura de cada tartaruga ï¿½ 73 pontos logo
 		
 		int larguraTartaruga = 73;
 		
@@ -81,6 +85,9 @@ public class TartarugaModule extends MobileElement{
 		this.tartarugas.add(new Tartaruga((larguraTartaruga*7), 240));
 		this.tartarugas.add(new Tartaruga((larguraTartaruga*8), 240));
 		
+		for(Tartaruga tart : tartarugas) {
+			tart.increaseVelocity(velTax);
+		}
 		
 		
 		

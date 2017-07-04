@@ -15,7 +15,7 @@ public class CheckPointsModule extends StaticElement{
 	}
 	
 	
-	/** A função abaixo irá checar colisões entre os elementos moveis inofencivos do cenario
+	/** A funÃâ€o abaixo irÂ· checar colisÄ±es entre os elementos moveis inofencivos do cenario
 	 * com o sapo, e caso encontre algum resultado de colisao devolve o indice do tronco 
 	 * com o qual o sapo colidiu.
 	 * @return
@@ -96,5 +96,16 @@ public class CheckPointsModule extends StaticElement{
 			return false;
 		}
 	}
+	
+	public void resetCheckPoints(){
+		
+		for(int i =0;i<this.checkPoints.size();i++){
+			
+			this.checkPoints.get(i).setChecked(false);
+			
+		}
+		
+	}
+	
 	
 }

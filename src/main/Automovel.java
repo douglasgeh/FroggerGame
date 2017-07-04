@@ -15,7 +15,7 @@ public class Automovel extends Sprite{
 		this.x = x;
 		this.y = y;
 		
-		this.velocidade = 0.1*direcao;
+		this.velocidade = 0.2*direcao;
 		this.direcao = direcao;
 	}
 
@@ -29,6 +29,10 @@ public class Automovel extends Sprite{
 	public double getVelocity(){
 		
 		return this.velocidade;
+	}
+	
+	public void increaseVelocity(int tax) {
+		this.velocidade *= tax;
 	}
 	
 	public void resetPosition(){

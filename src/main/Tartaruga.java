@@ -61,7 +61,10 @@ public class Tartaruga extends Sprite{
 		
 		return this.velocity;
 	}
-	
+  
+  public void increaseVelocity(int tax) {
+		this.velocity *= tax;
+	}
 	public void resetPosition(){
 		
 		this.x = -185;

@@ -7,12 +7,15 @@ import jplay.Window;
 
 public class Jogador extends Sprite{
 
-	private double velocidade = 0.2;
+	private double velocidade = 0.4;
 	private double direcao = 3;
 	private Keyboard teclado;
 	private boolean movendo = false;
 	private int lifes;
 	private boolean depending;
+	private ScoreManager scoreManager;
+	private double HighestPoint;
+	private double HighestPointToReset;
 	
 	public Jogador(int x, int y) {
 		
@@ -20,6 +23,9 @@ public class Jogador extends Sprite{
 		
 		this.x = x;
 		this.y = y;
+		this.scoreManager = new ScoreManager();
+		this.HighestPoint = y;
+		this.HighestPointToReset = y;
 		
 		this.depending = false;
 		
@@ -72,7 +78,7 @@ public class Jogador extends Sprite{
 			if(this.y<janela.getHeight()-50){
 				
 				this.y+=this.velocidade;
-				
+				scoreManager.DecreaseCurrentScore();
 			}
 			
 			
@@ -81,7 +87,7 @@ public class Jogador extends Sprite{
 			if(this.y > 0){
 				
 				this.y-=this.velocidade;
-				
+				scoreManager.IncreaseCurrentScore();
 			}
 			
 			
@@ -92,7 +98,9 @@ public class Jogador extends Sprite{
 		
 		
 	}
-	
+	private void ResetHighest(){
+		this.HighestPoint = this.HighestPointToReset;
+	}
 	public void moveAccordingToCenarioElement(double elementSpeed){
 		
 		this.x+=elementSpeed;
@@ -113,6 +121,22 @@ public class Jogador extends Sprite{
 		
 		this.x = 350;
 		this.y = 750;
+	}
+	
+	private void resetLifes(){
+		
+		this.lifes = 3;
+	}
+	
+	public void resetSettingsToNewLevel(){
+		
+		this.resetLifes();
+		this.ResetHighest();
+	}
+	
+	public ScoreManager getScoreManager(){
+		
+		return this.scoreManager;
 	}
 	
 	
