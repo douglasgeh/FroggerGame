@@ -49,13 +49,30 @@ public class MainGrame {
 		
 		switch(selectedOption){
 			
-		case NovoJogo: new Cenario(janela,speedMultiplier);
-		
-						
+		case NovoJogo: new Cenario(janela,speedMultiplier);	
 			break;
 			
+		case Ranking: setComingSoonScreen(janela);
+		break;
+		
 		case Sair: System.exit(0);
 			break;
+		}
+		
+		
+	}
+	
+	public static void setComingSoonScreen(Window janela){
+		
+		
+		GameImage comingSoon = new GameImage(URL.sprite("comingsoonScreen.png"));
+		Keyboard teclado = janela.getKeyboard();
+		
+		while(!teclado.keyDown(Keyboard.ENTER_KEY)){
+			
+			comingSoon.draw();
+			janela.update();
+			
 		}
 		
 		
