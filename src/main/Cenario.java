@@ -32,6 +32,10 @@ public class Cenario {
 
 	private GameState gameState;
 	
+	private TimerManager timer;
+	
+	private UnsafeZonesManager unsafeZones;
+	
 	private boolean waterColision;
 	
 	final private int invalid = -1;
@@ -50,6 +54,10 @@ public class Cenario {
 		this.troncosModule = new TroncosModule(this.velocityChange);
 		this.automovelModule = new AutomovelModule(this.velocityChange);
 		this.tartarugaModule = new TartarugaModule(this.velocityChange);
+		
+		this.timer = new TimerManager(50);
+		
+		this.unsafeZones = new UnsafeZonesManager();
 		
 		this.agua = new GameObject();
 		this.agua.x = 0;
@@ -78,6 +86,7 @@ public class Cenario {
 				this.checkAndSolveColisions();
 				this.drawCenarioElements();
 				//this.janela.drawText(Integer.toString(score.getCurrentScore()), 550, 750, Color.BLUE);
+				this.solveTimerMethods();
 				
 				
 				janela.update();
@@ -150,6 +159,20 @@ public class Cenario {
 		
 	}
 	
+	private void solveTimerMethods(){
+		
+		if(this.timer.checkEndGameIfTimeWasReached()){
+			
+			this.gameState = GameState.GAME_OVER;
+			
+		}
+		else{
+
+			this.timer.printTimeToScreen(this.janela);
+			
+		}
+		
+	}
 	
 	private boolean checkCenarioMobileElementsColision(){
 		
@@ -262,6 +285,10 @@ public class Cenario {
 	private void checkAndSolveColisions(){
 		
 		
+		if(this.unsafeZones.checkColisions(this.player)){
+			
+			this.gameState = GameState.GAME_OVER;
+		}
 		
 		if(this.checkCenarioMobileElementsColision() || this.checkWaterColision()){
 			
@@ -278,6 +305,8 @@ public class Cenario {
 		if(this.checkPointsModule.checkColisionWithStaticCenarioElement(player)){
 			
 			this.player.resetPosition();
+			
+			this.timer.resetTimer();
 			
 			if(this.checkPointsModule.checkWin()){
 				

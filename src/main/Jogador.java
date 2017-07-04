@@ -14,18 +14,21 @@ public class Jogador extends Sprite{
 	private int lifes;
 	private boolean depending;
 	private ScoreManager scoreManager;
-	private double HighestPoint;
-	private double HighestPointToReset;
+	private int delayVelocityMultiplier;
+	private int delayToClick;
 	
 	public Jogador(int x, int y) {
 		
-		super(URL.sprite("singleFrog.png"), 1);
+		super(URL.sprite("singleFrog.png"),1);
 		
 		this.x = x;
 		this.y = y;
 		this.scoreManager = new ScoreManager();
-		this.HighestPoint = y;
-		this.HighestPointToReset = y;
+	
+		this.delayVelocityMultiplier = 30;
+		
+		
+		this.delayToClick = 1;
 		
 		this.depending = false;
 		
@@ -56,51 +59,57 @@ public class Jogador extends Sprite{
 		}
 		
 		
-		if(this.teclado.keyDown(Keyboard.LEFT_KEY)){
+		if(this.delayToClick%60 == 0){
 			
-			if(this.x>0){
-				
-				this.x -= this.velocidade;
-				
-			}
 
-		}else if(this.teclado.keyDown(Keyboard.RIGHT_KEY)){
-			
-			if(this.x < janela.getWidth()-50){
+			if(this.teclado.keyDown(Keyboard.LEFT_KEY)){
 				
-				this.x+=this.velocidade;
-			
-			}
-			
-			
-		}else if(this.teclado.keyDown(Keyboard.DOWN_KEY)){
-			
-			if(this.y<janela.getHeight()-50){
+				if(this.x>0){
+					
+					this.x -= this.delayVelocityMultiplier*velocidade;
+					
+				}
+
+			}else if(this.teclado.keyDown(Keyboard.RIGHT_KEY)){
 				
-				this.y+=this.velocidade;
-				scoreManager.DecreaseCurrentScore();
-			}
-			
-			
-		}else if(this.teclado.keyDown(Keyboard.UP_KEY)){
-			
-			if(this.y > 0){
+				if(this.x < janela.getWidth()-50){
+					
+					this.x+=this.delayVelocityMultiplier*velocidade;
 				
-				this.y-=this.velocidade;
-				scoreManager.IncreaseCurrentScore();
+				}
+				
+				
+			}else if(this.teclado.keyDown(Keyboard.DOWN_KEY)){
+				
+				if(this.y<janela.getHeight()-50){
+					
+					this.y+=this.delayVelocityMultiplier*velocidade;
+					scoreManager.DecreaseCurrentScore();
+				}
+				
+				
+			}else if(this.teclado.keyDown(Keyboard.UP_KEY)){
+				
+				if(this.y > 0){
+					
+					this.y-=this.delayVelocityMultiplier*velocidade;
+					scoreManager.IncreaseCurrentScore();
+				}
+				
+				
 			}
 			
 			
 		}
 		
+		this.delayToClick+=1;
+		
 		
 		
 		
 		
 	}
-	private void ResetHighest(){
-		this.HighestPoint = this.HighestPointToReset;
-	}
+	
 	public void moveAccordingToCenarioElement(double elementSpeed){
 		
 		this.x+=elementSpeed;
@@ -131,7 +140,7 @@ public class Jogador extends Sprite{
 	public void resetSettingsToNewLevel(){
 		
 		this.resetLifes();
-		this.ResetHighest();
+		
 	}
 	
 	public ScoreManager getScoreManager(){
